@@ -8,6 +8,8 @@ var ground, invisibleGround, groundImage;
 var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
 
+var bgImage;
+
 var score;
 var gameOverImg,restartImg
 var jumpSound , checkPointSound, dieSound
@@ -26,6 +28,8 @@ function preload(){
   obstacle4 = loadImage("obstacle4.png");
   obstacle5 = loadImage("obstacle5.png");
   obstacle6 = loadImage("obstacle6.png");
+
+  bgImage = loadImage("bg.png");
   
   restartImg = loadImage("restart.png")
   gameOverImg = loadImage("gameOver.png")
@@ -79,7 +83,7 @@ function setup() {
 
 function draw() {
   
-  background(180);
+  background(bgImage);
   //displaying score
   text("Score: "+ score, 500,50);
   
@@ -217,7 +221,7 @@ function spawnClouds() {
     var cloud = createSprite(camera.position.x+300,120,40,10);
     cloud.y = Math.round(random(80,120));
     cloud.addImage(cloudImage);
-    cloud.scale = 0.5;
+    cloud.scale = 0.7;
     cloud.velocityX = -3;
     
      //assign lifetime to the variable
